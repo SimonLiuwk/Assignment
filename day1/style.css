@@ -1,0 +1,25 @@
+
+.container{
+    margin: 0 auto;
+    padding: 0;
+    width: 60%;
+    
+}
+
+h2{
+    text-align: center;
+    padding: 40px;
+}
+
+button{
+    width: 100%;
+}
+
+.badge{
+    color: #fff !important;
+}
+
+.terms{
+    color:rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
+    text-decoration: none; 
+}
