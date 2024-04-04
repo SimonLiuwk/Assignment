@@ -16,6 +16,7 @@ const View = (() => {
     container: ".todolist_container",
     inputBox: "#user-input",
     addBtn: "#addBtn",
+    deleteBtn: ".delete_todo"
   };
 
   const creatTmp = (arr) => {
@@ -98,9 +99,22 @@ const Controller = ((view, model) => {
     });
   };
 
+  const deleteTodo = ()=>{
+    const todoContainer = document.querySelector(domStr.container);
+    // console.log(todoContainer)
+    todoContainer.addEventListener('click',(evt)=>{
+      let item = evt.target.parentNode;
+      const todoText = item.querySelector('span').textContent;
+        // console.log(todoText)
+      const newTodos = state.getTodoList.filter(item=> item.title != todoText)
+      state.newTodoList = newTodos;
+    })
+  }
+
   const bootstrap = ()=>{
     init();
     addTodo();
+    deleteTodo();
   }
 
   return {
