@@ -103,11 +103,15 @@ const Controller = ((view, model) => {
     const todoContainer = document.querySelector(domStr.container);
     // console.log(todoContainer)
     todoContainer.addEventListener('click',(evt)=>{
-      let item = evt.target.parentNode;
-      const todoText = item.querySelector('span').textContent;
-        // console.log(todoText)
-      const newTodos = state.getTodoList.filter(item=> item.title != todoText)
-      state.newTodoList = newTodos;
+      if(evt.target.tagName === 'BUTTON' && evt.target.parentElement.tagName === 'LI'){
+        let item = evt.target.parentNode;
+
+        const todoText = item.querySelector('span').textContent;
+          // console.log(todoText)
+        const newTodos = state.getTodoList.filter(item=> item.title != todoText)
+        state.newTodoList = newTodos;
+      }
+    
     })
   }
 
