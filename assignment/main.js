@@ -109,7 +109,7 @@ const Model = ((view)=>{
 const Controller= ((view, model,api)=>{
     
     const getData = api;
-    const {domStr, createCourseTemp, render, createTotalCreditTemp} = view;
+    const {domStr} = view;
     const {State} = model;
     const state = new State();
 
@@ -131,13 +131,13 @@ const Controller= ((view, model,api)=>{
         courseContainer.addEventListener('click', (evt)=>{
 
             if(evt.target.tagName === "SPAN" && evt.target.parentElement.tagName === 'DIV'){
-                
+                //get current selected class
                 let item = evt.target.parentNode;
                 const courseName= item.querySelector('span').textContent;
                 const selectedCourse = state.getAvailableCourses.find(
                     (course)=>{return course.courseName === courseName
                 })
-                // check if total credit more than 18
+                // check if total credits more than 18
                 if(state.getTotalCredits + selectedCourse.credit>18 && !state.getTempSelecteCourses.find((course)=> course.courseId === selectedCourse.courseId)){
                     alert("You can only choose up to 18 credits in one semester!")
                     return;
@@ -151,7 +151,7 @@ const Controller= ((view, model,api)=>{
                     state.setTempSlecteCourses= state.getTempSelecteCourses.filter(course=> course.courseId !==selectedCourse.courseId);
                     item.classList.remove("selected")
                 }
-                
+                // calculate credits
                 state.setTotalCredits = state.getTotalCredits 
             }
         })
@@ -162,7 +162,6 @@ const Controller= ((view, model,api)=>{
         const addSelectedBtn = document.querySelector(domStr.selectedBtn);
 
         addSelectedBtn.addEventListener("click",()=>{
-
             let message = `You have chosen ${state.getTotalCredits} credits for this semester. You cannot change once you submit. Do you want to confirm?`
             let res = showConfirmation(message)
 
@@ -176,7 +175,6 @@ const Controller= ((view, model,api)=>{
                 addSelectedBtn.disabled = true;
             }
         })
-
     }
 
     const bootstrap=()=>{
@@ -186,8 +184,6 @@ const Controller= ((view, model,api)=>{
     }
 
     return {bootstrap};
-
-
 
 })(View, Model,Api);
 
