@@ -6,6 +6,7 @@ const Api = (() => {
   // Fetch data from server
   const url = "https://jsonplaceholder.typicode.com/todos";
   const getData = fetch(url).then((res) => res.json());
+  console.log(getData)
   return {
     getData,
   };
