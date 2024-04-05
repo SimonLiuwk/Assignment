@@ -10,11 +10,6 @@ body{
     gap : 40px;
 
 }
-
-.courses{
-    border: 1px solid #000;
-}
-
 .content{
     display: flex;
     flex-wrap: wrap;
@@ -22,36 +17,8 @@ body{
     height: 300px;
 }
 
-.available_courses{
-    width: 200px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    overflow-y: auto;
-    
-}
-
-.available_courses div:nth-child(even) {
-    background-color: rgb(221, 239, 221);
-}
-
-
-
-.available_courses div{
-    display: flex;
-    width: 200px;
+.courses{
     border: 1px solid #000;
-    text-align: center;
-    flex-direction: column;
-}
-
-.available_courses div span{
-    display: block;
-   
-}
-
-.selected_courses{
     width: 200px;
     height: 300px;
     display: flex;
@@ -60,11 +27,11 @@ body{
     overflow-y: auto;
 }
 
-.selected_courses div:nth-child(even) {
+.courses div:nth-child(even) {
     background-color: rgb(221, 239, 221);
 }
 
-.selected_courses div{
+.courses div{
     display: flex;
     width: 200px;
     border: 1px solid #000;
@@ -72,9 +39,8 @@ body{
     flex-direction: column;
 }
 
-.selected_courses div span{
+.courses div span{
     display: block;
-   
 }
 
 .selected {
