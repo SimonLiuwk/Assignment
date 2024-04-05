@@ -137,7 +137,7 @@ const Controller= ((view, model,api)=>{
                 const selectedCourse = state.getAvailableCourses.find(
                     (course)=>{return course.courseName === courseName
                 })
-                // check if total credits more than 18
+                // check if total credit more than 18
                 if(state.getTotalCredits + selectedCourse.credit>18 && !state.getTempSelecteCourses.find((course)=> course.courseId === selectedCourse.courseId)){
                     alert("You can only choose up to 18 credits in one semester!")
                     return;
@@ -162,6 +162,7 @@ const Controller= ((view, model,api)=>{
         const addSelectedBtn = document.querySelector(domStr.selectedBtn);
 
         addSelectedBtn.addEventListener("click",()=>{
+
             let message = `You have chosen ${state.getTotalCredits} credits for this semester. You cannot change once you submit. Do you want to confirm?`
             let res = showConfirmation(message)
 
