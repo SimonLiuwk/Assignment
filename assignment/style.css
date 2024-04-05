@@ -37,6 +37,7 @@ body{
     border: 1px solid #000;
     text-align: center;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .courses div span{
